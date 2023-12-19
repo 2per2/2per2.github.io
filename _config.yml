@@ -18,7 +18,7 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: 묘론파의 무덤
+title: 투퍼센투
 
 tagline: 안녕, 세상!
 
@@ -27,10 +27,10 @@ description: >- # used by seo meta and the atom feed
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
-url: "https://melonhong.github.io"
+url: "https://2per2.github.io"
 
 github:
-  username: melonhong # change to your github username
+  username: 2per2 # change to your github username
 
 twitter:
   username: twitter_username # change to your twitter username
@@ -88,7 +88,7 @@ comments:
     shortname: # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
   # utterances settings › https://utteranc.es/
   utterances:
-    repo: melonhong/melonhong.github.io
+    repo: 2per2/2per2.github.io
     issue_term: pathname
   # Giscus options › https://giscus.app
   giscus:
