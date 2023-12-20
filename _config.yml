@@ -18,7 +18,7 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: 투퍼센투
+title: 2per2의 블로그
 
 tagline: 안녕, 세상!
 
@@ -38,12 +38,12 @@ twitter:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: melonhong
-  email: melonhong46@gmail.com # change to your email address
+  name: 2per2
+  email: twopercentwo@gmail.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
     - https://twitter.com/username # change to your twitter homepage
-    - https://github.com/melonhong # change to your github homepage
+    - https://github.com/2per2 # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
@@ -77,7 +77,7 @@ theme_mode: # [light|dark]
 img_cdn: "https://chirpy-img.netlify.app"
 
 # the avatar on sidebar, support local or CORS resources
-avatar: "https://i.namu.wiki/i/Rjs9XG4sVKlyFsMQzVrJXArF8cxywzJTM76aUkXmobhXSlx4B7Q3ej_2ujdxlsXleivUI8Y9swNsBd3qrJ_neA.webp"
+avatar: "https://github.com/2per2/2per2.github.io/assets/154369925/c839c41f-ec27-4d5c-9ce2-11bacbafb7a8"
 # boolean type, the global switch for TOC in posts.
 toc: true
 

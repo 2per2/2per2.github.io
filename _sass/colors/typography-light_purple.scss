@@ -6,7 +6,7 @@
   /* Framework color */
   --main-bg: white;
   --mask-bg: #c1c3c5;
-  --main-border-color: #b790dd;
+  --main-border-color: #8483CE;
 
   /* Common color */
   --text-color: #34343c;
@@ -16,16 +16,16 @@
   --label-color: #585858;
   --blockquote-border-color: #eeeeee;
   --blockquote-text-color: #757575;
-  --link-color: #a780cf;
+  --link-color: #8483CE;
   --link-hover:#bf209f;
-  --link-underline-color: rgb(255, 255, 255) 0%;
+  --link-underline-color: #dee2e6;
   --button-bg: #ffffff;
   --btn-border-color: #e9ecef;
-  --btn-backtotop-color: #7e6696; 
+  --btn-backtotop-color: #8483CE;
   --btn-backtotop-border-color: #f1f1f1;
   --btn-box-shadow: #eaeaea;
   --checkbox-color: #c5c5c5;
-  --checkbox-checked-color: #7e6696;
+  --checkbox-checked-color: #8483CE;
   --img-bg: radial-gradient(
     circle,
     rgb(255, 255, 255) 0%,
@@ -37,19 +37,18 @@
     rgba(232, 230, 230, 1) 50%,
     rgba(250, 250, 250, 0) 100%
   );
-  --horizontal-line: #242323; //추가
  
   /* Sidebar */
-  --site-title-color: rgb(102, 102, 108);
+  --site-title-color: rgb(63, 62, 74);
   --site-subtitle-color: #717171;
-  --sidebar-bg: #f6f5f9;
+  --sidebar-bg: #f8f6fa;
   --sidebar-border-color: #efefef;
-  --sidebar-muted-color: #7e6696;
+  --sidebar-muted-color: #5a598a;
   --sidebar-active-color: #2A263F;
   --sidebar-hover-bg: rgb(133, 131, 201, 0.16);
   --sidebar-btn-bg: white;
-  --sidebar-btn-color: #7e6696;
-  --avatar-border-color: #ffffff;
+  --sidebar-btn-color: #5a598a;
+  --avatar-border-color: #fbfbfd;
 
   /* Topbar */
   --topbar-bg: rgb(255, 255, 255, 0.7);
@@ -64,9 +63,9 @@
   --btn-paginator-hover-color: var(--sidebar-bg);
 
   /* Posts */
-  --toc-highlight: #b790dd;
+  --toc-highlight: #8483CE;
   --btn-share-color: gray;
-  --btn-share-hover-color: #b790dd;
+  --btn-share-hover-color: #8483CE;
   --card-bg: white;
   --card-hovor-bg: #e2e2e2;
   --card-shadow: rgb(104, 104, 104, 0.05) 0 2px 6px 0,
@@ -91,7 +90,7 @@
   /* Tags */
   --tag-border: #dee2e6;
   --tag-shadow: var(--btn-border-color);
-  --tag-hover: #f6f5f9;
+  --tag-hover: rgb(133, 131, 201, 0.32);
   --search-tag-bg: #f8f9fa;
 
   [class^='prompt-'] {
@@ -102,10 +101,6 @@
     display: none;
   }
 
-  hr {
-    border-color: var(--horizontal-line); /*수정*/
-  }
-
   /* Categories */
   --categories-border: rgba(0, 0, 0, 0.125);
   --categories-hover-bg: var(--btn-border-color);
@@ -113,6 +108,6 @@
 
   /* Archive */
   --timeline-color: rgba(0, 0, 0, 0.075);
-  --timeline-node-bg: #7e6696;
+  --timeline-node-bg: #8483CE;
   --timeline-year-dot-color: #ffffff;
 } /* light-scheme */

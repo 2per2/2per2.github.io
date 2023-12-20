@@ -20,7 +20,7 @@ tabs:
 search:
   hint: 검색
   cancel: 취소
-  no_results: 찾아봐도 없는디...
+  no_results: 검색결과가 없습니다.
 
 panel:
   lastmod: 최근 추가한 글
@@ -30,7 +30,7 @@ panel:
 copyright:
   # Shown at the bottom of the post
   license:
-    template: 도움이 되셨다면 공유!
+    template: 이 글은 :LICENSE_NAME 를 따릅니다.  
     name: CC BY 4.0
     link: https://creativecommons.org/licenses/by/4.0/
 
@@ -46,7 +46,7 @@ not_found:
   statment: 해당 URL은 존재하지 않습니다.
 
 notification:
-  update_found: 새 버전의 콘텐츠를 사용할 수 있습니다!
+  update_found: 새 버전의 콘텐츠를 사용할 수 있습니다.
   update: 업데이트
 
 # ----- Posts related labels -----
@@ -59,17 +59,17 @@ post:
   pageview_measure: 조회
   read_time:
     unit: 분
-    prompt: 이면 읽는다!
-  relate_posts: 다른 글도 볼래요?
+    prompt: 안에 읽음
+  relate_posts: 연관된 글
   share: 공유하기
   button:
     next: 다음 글
     previous: 이전 글
     copy_code:
-      succeed: 복사되었습니다!
+      succeed: 복사되었습니다.
     share_link:
       title: 링크 복사하기
-      succeed: 링크가 복사되었습니다!
+      succeed: 링크가 복사되었습니다.
 
 # Date time format.
 # See: <http://strftime.net/>, <https://day.js.org/docs/en/display/format>
