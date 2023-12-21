@@ -10,7 +10,7 @@
 
       {% if paths.size == 0 or page.layout == 'home' %}
         <!-- index page -->
-        <span>{{ site.data.locales[include.lang].tabs.home | capitalize }}</span>
+        <span style="color:var(--main-border-color)">{{ site.data.locales[include.lang].tabs.home | capitalize }}</span>
 
       {% else %}
         {% for item in paths %}
@@ -21,7 +21,6 @@
               </a>
             </span>
             
-         
           {% elsif forloop.last %}
             {% if page.collection == 'tabs' %}
               <span>{{ site.data.locales[include.lang].tabs[item] | default: page.title }}</span>
@@ -33,7 +32,7 @@
             <span>
             {% for category in page.categories %}
               <a href="{{ site.baseurl }}/categories/{{ category | slugify | url_encode }}/">{{ category }}</a>
-              {%- unless forloop.last -%},{%- endunless -%}
+              {%- unless forloop.last -%} <span></span> {%- endunless -%} <!--하하 수정했다-->
             {% endfor %}
             </span>
 

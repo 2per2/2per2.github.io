@@ -54,9 +54,9 @@ html {
     @extend %code-snippet-bg;
   }
 
-  overflow: auto;
+  overflow: hidden;
   padding-bottom: 0.75rem;
-
+  font-family: $font-family-code !important;
   pre {
     margin-bottom: 0;
     font-size: $code-font-size;
@@ -99,7 +99,7 @@ code {
   -ms-hyphens: none;
   hyphens: none;
   color: var(--code-color);
-  font-family: $font-family-base;
+  font-family: $font-family-base !important;
   
   &.highlighter-rouge {
     font-size: $code-font-size;
