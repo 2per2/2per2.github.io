@@ -69,7 +69,7 @@ layout: compress
     </div>
 
     <div id="mask"></div>
-
+    
     {% if site.pwa.enabled %}
       {% include_cached notification.html lang=lang %}
     {% endif %}
@@ -77,7 +77,7 @@ layout: compress
     <!-- JavaScripts -->
 
     {% include js-selector.html %}
-
+    
     {% if page.mermaid %}
       {% include mermaid.html %}
     {% endif %}

@@ -1,5 +1,5 @@
 import { modeWatcher } from '../components/mode-watcher';
-import { sidebarExpand } from '../components/sidebar';
+import { sidebarExpand, addSnowEffect } from '../components/sidebar';
 
 export function initSidebar() {
   modeWatcher();
