@@ -83,5 +83,64 @@ layout: compress
     {% endif %}
 
     {% include_cached search-loader.html %}
+
+    <!-- 눈 내리는 효과 적용 -->
+<!--이건 웹에서 가져오는 거<script src="https://app.embed.im/snow.js" defer></script>-->
+
+<script>// 웹 페이지에서 눈 모션 효과를 추가하는 코드 (커스텀함)
+  // 원본 코드 출처: https://embed.im/snow
+  
+  // HTML 요소 가져오기
+  var embedimSnowContainer = document.getElementById("embedim--snow");
+  
+  // 요소가 없을 경우에만 실행
+  if (!embedimSnowContainer) {
+      // 랜덤 값을 생성하는 함수
+      function getRandomValue(min, max) {
+          return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+  
+      // 눈의 스타일 정의
+      var snowStyle = '.embedim-snow {position: absolute;width: 10px;height: 10px;background: rgb(204,204,204);border-radius: 50%;margin-top: -10px}';
+      
+      // 눈의 HTML 정의
+      var snowHtml = '';
+      
+      // 눈 효과를 생성하는 반복문
+      for (var i = 1; i < 50; i++) {
+          snowHtml += '<i class="embedim-snow"></i>';
+  
+          var randomX = (getRandomValue(0, 1000000) * 0.0001);
+          var randomOpacity = getRandomValue(1, 5000) * 0.0001;
+          var randomTranslate = getRandomValue(3, 8) * 10;
+          var randomScale = getRandomValue(0, 10000) * 0.0001;
+  
+          // 눈의 스타일 추가
+          snowStyle += '.embedim-snow:nth-child(' + i + ') {'
+              + 'opacity: ' + randomOpacity.toFixed(2) + ';'
+              + 'transform: translate(' + randomX.toFixed(2) + 'vw, -10px) scale(' + randomScale.toFixed(2) + ');'
+              + 'animation: fall-' + i + ' ' + getRandomValue(10, 30) + 's -' + getRandomValue(0, 30) + 's linear infinite'
+              + '}';
+  
+          // 눈의 애니메이션 정의
+          snowStyle += '@keyframes fall-' + i + ' {'
+              + randomTranslate + '% {'
+              + 'transform: translate(' + (randomX + getRandomValue(-100000, 100000) * 0.0001).toFixed(2) + 'vw, ' + randomTranslate + 'vh) scale(' + randomScale + ')'
+              + '}'
+              + 'to {'
+              + 'transform: translate(' + (randomX + (getRandomValue(-100000, 100000) * 0.0001) / 2).toFixed(2) + 'vw, 105vh) scale(' + randomScale + ')'
+              + '}'
+              + '}';
+      }
+  
+      // 눈 컨테이너 생성 및 추가
+      embedimSnowContainer = document.createElement('div');
+      embedimSnowContainer.id = 'embedim--snow';
+      embedimSnowContainer.innerHTML = '<style>#embedim--snow {position: fixed;left: 0;top: 0;bottom: 0;width: 100vw;height: 100vh;overflow: hidden;z-index: 9999999;pointer-events: none}' + snowStyle + '</style>' + snowHtml;
+      document.body.appendChild(embedimSnowContainer);
+  }
+  </script>
+
   </body>
 </html>
+
