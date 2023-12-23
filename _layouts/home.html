@@ -118,10 +118,8 @@ refactor: true
 {% endif %}
 
  <!-- 눈 내리는 효과 적용  <script src="https://app.embed.im/snow.js" defer></script>-->
-
-
- <script>// 웹 페이지에서 눈 모션 효과를 추가하는 코드 (커스텀함)
-   // 원본 코드 출처: https://embed.im/snow
+ <script defer>
+     // 원본 코드 출처: https://embed.im/snow
    
    // HTML 요소 가져오기
    var embedimSnowContainer = document.getElementById("embedim--snow");
@@ -172,4 +170,4 @@ refactor: true
        embedimSnowContainer.innerHTML = '<style>#embedim--snow {position: fixed;left: 0;top: 0;bottom: 0;width: 100vw;height: 100vh;overflow: hidden;z-index: 9999999;pointer-events: none}' + snowStyle + '</style>' + snowHtml;
        document.body.appendChild(embedimSnowContainer);
    }
-   </script>
+ </script>
