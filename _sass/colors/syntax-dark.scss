@@ -5,7 +5,7 @@
 @mixin dark-syntax {
   --language-border-color: #2d2d2d;
   --highlight-bg-color: #151515;
-  --highlighter-rouge-color: #c9def1;
+  --highlighter-rouge-color: #c39be4; /*#c9def1; 수정*/
   --highlight-lineno-color: #808080;
   --inline-code-bg: #323238;
   --code-color: #b0b0b0;
@@ -47,7 +47,7 @@
   .highlight .cpf,
   .highlight .c1,
   .highlight .cs {
-    color: #848484;
+    color: #488a5b; //주석 색깔 수정
   }
 
   .highlight .cp {

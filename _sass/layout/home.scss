@@ -40,6 +40,7 @@
 
         color: var(--heading-color) !important;
         font-size: 1.25rem;
+        font-weight: 600; // 수정
       }
 
       %muted {
@@ -186,4 +187,30 @@
       display: none;
     }
   } /* .pagination */
+}
+
+#notice-board {
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+}
+
+#notice {
+  position: absolute;
+  white-space: nowrap;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--label-color);
+  left: 100%; /* 초기 위치를 오른쪽 화면 밖으로 설정 */
+  animation: scrolling 10s linear infinite; /* 10초 동안 옆으로 스크롤되도록 설정 */
+}
+
+@keyframes scrolling {
+  0% {
+    left: 100%; /* 초기 위치 */
+  }
+  100% {
+    left: -100%; /* 왼쪽 화면 밖까지 스크롤 */
+  }
 }

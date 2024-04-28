@@ -14,33 +14,20 @@
   padding-right: $pr;
 }
 
-header {
-  .post-desc {
-    @extend %heading;
-
-    font-size: 1.125rem;
-    line-height: 1.6;
+h1 + .post-meta {
+  > span + span::before {
+    @include dot;
   }
 
-  .post-meta {
-    span + span::before {
-      @include dot;
-    }
-
-    em,
-    time {
-      @extend %text-highlight;
-    }
-
-    em {
-      a {
-        color: inherit;
-      }
-    }
+  em,
+  time {
+    @extend %text-highlight;
   }
 
-  h1 + .post-meta {
-    margin-top: 1.5rem;
+  em {
+    a {
+      color: inherit;
+    }
   }
 }
 
@@ -48,7 +35,7 @@ header {
   @extend %text-sm;
 
   margin-top: 6rem;
-  border-bottom: 1px double var(--main-border-color);
+  border-bottom: 0.5px solid var(--horizontal-line); /*수정*/
 
   .license-wrapper {
     line-height: 1.2rem;
@@ -103,9 +90,9 @@ header {
       }
 
       button {
+        position: relative;
+        bottom: 1px;
         padding: 0;
-        border: none;
-        line-height: inherit;
 
         @extend %cursor-pointer;
       }

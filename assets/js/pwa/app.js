@@ -1,56 +1,47 @@
 ---
 layout: compress
-permalink: /assets/js/dist/:basename.min.js
+permalink: '/app.js'
 ---
 
+const $notification = $('#notification');
+const $btnRefresh = $('#notification .toast-body>button');
+
 if ('serviceWorker' in navigator) {
-  const isEnabled = '{{ site.pwa.enabled }}' === 'true';
+    /* Registering Service Worker */
+    navigator.serviceWorker.register('{{ "/sw.js" | relative_url }}')
+        .then(registration => {
 
-  if (isEnabled) {
-    const swUrl = '{{ '/sw.min.js' | relative_url }}';
-    const notification = document.getElementById('notification');
-    const btnRefresh = notification.querySelector('.toast-body>button');
-    const popupWindow = bootstrap.Toast.getOrCreateInstance(notification);
-
-    navigator.serviceWorker.register(swUrl).then((registration) => {
-      {% comment %}In case the user ignores the notification{% endcomment %}
-      if (registration.waiting) {
-        popupWindow.show();
-      }
-
-      registration.addEventListener('updatefound', () => {
-        registration.installing.addEventListener('statechange', () => {
-          if (registration.waiting) {
-            if (navigator.serviceWorker.controller) {
-              popupWindow.show();
+            /* in case the user ignores the notification */
+            if (registration.waiting) {
+                $notification.toast('show');
             }
-          }
+
+            registration.addEventListener('updatefound', () => {
+                registration.installing.addEventListener('statechange', () => {
+                    if (registration.waiting) {
+                        if (navigator.serviceWorker.controller) {
+                            $notification.toast('show');
+                        }
+                    }
+                });
+            });
+
+            $btnRefresh.click(() => {
+                if (registration.waiting) {
+                    registration.waiting.postMessage('SKIP_WAITING');
+                }
+                $notification.toast('hide');
+            });
         });
-      });
-
-      btnRefresh.addEventListener('click', () => {
-        if (registration.waiting) {
-          registration.waiting.postMessage('SKIP_WAITING');
-        }
-
-        popupWindow.hide();
-      });
-    });
 
     let refreshing = false;
 
-    {% comment %}Detect controller change and refresh all the opened tabs{% endcomment %}
+    /* Detect controller change and refresh all the opened tabs */
     navigator.serviceWorker.addEventListener('controllerchange', () => {
-      if (!refreshing) {
-        window.location.reload();
-        refreshing = true;
-      }
+        if (!refreshing) {
+            window.location.reload();
+            refreshing = true;
+        }
     });
-  } else {
-    navigator.serviceWorker.getRegistrations().then(function (registrations) {
-      for (let registration of registrations) {
-        registration.unregister();
-      }
-    });
-  }
 }
+

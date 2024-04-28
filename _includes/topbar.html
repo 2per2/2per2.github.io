@@ -5,22 +5,25 @@
     id="topbar"
     class="d-flex align-items-center justify-content-between px-lg-3 h-100"
   >
+  <button type="button" id="sidebar-trigger" class="btn btn-link" title="글을 크게 보려면 버튼을 누르세요">
+    <i class="fas fa-bars fa-fw"></i>
+  </button>
     <nav id="breadcrumb" aria-label="Breadcrumb">
       {% assign paths = page.url | split: '/' %}
 
       {% if paths.size == 0 or page.layout == 'home' %}
         <!-- index page -->
-        <span>{{ site.data.locales[include.lang].tabs.home | capitalize }}</span>
+        <span style="color:var(--main-border-color)">{{ site.data.locales[include.lang].tabs.home | capitalize }}</span>
 
       {% else %}
         {% for item in paths %}
           {% if forloop.first %}
             <span>
               <a href="{{ '/' | relative_url }}">
-                {{- site.data.locales[include.lang].tabs.home | capitalize -}}
+                {{ site.data.locales[include.lang].tabs.home | capitalize }}
               </a>
             </span>
-
+            
           {% elsif forloop.last %}
             {% if page.collection == 'tabs' %}
               <span>{{ site.data.locales[include.lang].tabs[item] | default: page.title }}</span>
@@ -28,10 +31,18 @@
               <span>{{ page.title }}</span>
             {% endif %}
 
+          {% elsif page.layout == 'post' %}
+            <span>
+            {% for category in page.categories %}
+              <a href="{{ site.baseurl }}/categories/{{ category | slugify | url_encode }}/">{{ category }}</a>
+              {%- unless forloop.last -%} <span></span> {%- endunless -%} <!--하하 수정했다-->
+            {% endfor %}
+            </span>
+
           {% elsif page.layout == 'category' or page.layout == 'tag' %}
             <span>
-              <a href="{{ item | append: '/' | relative_url }}">
-                {{- site.data.locales[include.lang].tabs[item] | default: page.title -}}
+              <a href="{{ item | relative_url }}">
+                {{ site.data.locales[include.lang].tabs[item] | default: page.title }}
               </a>
             </span>
           {% endif %}
@@ -40,9 +51,7 @@
     </nav>
     <!-- endof #breadcrumb -->
 
-    <button type="button" id="sidebar-trigger" class="btn btn-link">
-      <i class="fas fa-bars fa-fw"></i>
-    </button>
+    
 
     <div id="topbar-title">
       {% if page.layout == 'home' %}
@@ -59,7 +68,7 @@
       <i class="fas fa-search fa-fw"></i>
     </button>
 
-    <search id="search" class="align-items-center ms-3 ms-lg-0">
+    <search class="align-items-center ms-3 ms-lg-0">
       <i class="fas fa-search fa-fw"></i>
       <input
         class="form-control"

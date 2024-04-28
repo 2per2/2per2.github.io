@@ -5,16 +5,13 @@ layout: default
 {% include lang.html %}
 
 <article class="px-1">
-  {% if page.layout == 'page' or page.collection == 'tabs' %}
-    {% assign tab_key = page.title | downcase %}
-    {% assign title = site.data.locales[lang].tabs[tab_key] | default: page.title %}
-    <h1 class="dynamic-title">
-      {{ title }}
-    </h1>
-    <div class="content">
-      {{ content }}
-    </div>
-  {% else %}
-    {{ content }}
-  {% endif %}
+  {% if page.layout == 'page' or page.collection == 'tabs' %} {% assign tab_key
+  = page.title | downcase %} {% assign title =
+  site.data.locales[lang].tabs[tab_key] | default: page.title %}
+  <h1 class="dynamic-title">{{ title }}</h1>
+  <div class="content">{{ content }}</div>
+  {% else %} {{ content }} {% endif %}
 </article>
+
+<!-- 꽃 효과 적용 -->
+<!--<script src="https://app.embed.im/snow.js" defer></script> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" defer></script>-->
