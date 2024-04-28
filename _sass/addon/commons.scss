@@ -1406,7 +1406,6 @@ search {
   [#{$sidebar-display}] {
     #sidebar {
       @include slide;
-  
       transform: translateX(-$sidebar-width); /* hide */
       -webkit-transform: translateX(-$sidebar-width);
     }
@@ -1427,6 +1426,7 @@ search {
     }
   
     #breadcrumb {
+      margin-left: 1rem;
       width: 65%;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -1446,8 +1446,7 @@ search {
     }
   
     #sidebar-trigger {
-      left: 10px;
-      transition: left 0.4s ease; 
+      transition: left 0.4s ease;
       @include sidebar-trigger-basic();
     }
   
@@ -1455,9 +1454,16 @@ search {
       letter-spacing: 0;
     }
 
-    //.container > 
+    .container {
+      max-width: 120%;
+      transition: max-width 0.4s ease;
+    } 
   } /*sidebar is hidden*/
-
+    
+    .container {
+      transition: max-width 0.4s ease;
+    } 
+    
     #sidebar {
       transform: translateX(0);
       @include slide;
@@ -1478,7 +1484,7 @@ search {
     }
 
     #sidebar-trigger {
-      left: calc($sidebar-width - 50px);
+      left: 0;
       transition: left 0.4s ease; 
       @include sidebar-trigger-basic();
     }
@@ -1488,7 +1494,6 @@ search {
     }
 
 }
-
 /* Pad horizontal */
 @media all and (min-width: 992px) and (max-width: 1199px) {
   #main-wrapper > .ps-2 .col-lg-11 {
@@ -1526,12 +1531,16 @@ search {
 /* --- desktop mode, both sidebar and panel are visible --- */
 
 @media all and (min-width: 1200px) {
-  search {
-    margin-right: 3rem;
-  }
-
   #search-input {
     transition: all 0.3s ease-in-out;
+  }
+
+  #breadcrumb {
+    width: 65%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: keep-all;
+    white-space: nowrap;
   }
 
   #search-results > article {
@@ -1574,9 +1583,7 @@ search {
   }
 
   search {
-    margin-right: calc(
-      $main-content-max-width / 4 - $search-max-width - 0.75rem
-    );
+    width: 40%;
   }
 
   #main-wrapper > .container {
@@ -1600,6 +1607,12 @@ search {
     }
   }
 
+  @mixin sidebar-trigger-basic {
+    position: fixed;
+    z-index: 10000;
+    display: block;
+  }
+
   footer {
     @include slide;
 
@@ -1613,20 +1626,26 @@ search {
     }
 
     #main-wrapper {
-      margin-left: $sidebar-width;
+      margin-left: $sidebar-width-large;
       transition: margin-left 0.4s ease; // 수정
     }
 
-    #back-to-top {
-      visibility: hidden;
+    #breadcrumb {
+      margin-left: 0;
     }
   }
 
   #sidebar {
     @include slide;
 
-    transform: translateX(-$sidebar-width); /* hide */
-    -webkit-transform: translateX(-$sidebar-width);
+    transform: translateX(-$sidebar-width-large); /* hide */
+    -webkit-transform: translateX(-$sidebar-width-large);
+  }
+
+  #sidebar-trigger {
+    left: calc($sidebar-width-large - 300px);
+    transition: left 0.4s ease;
+    @include sidebar-trigger-basic;
   }
 
   #main-wrapper {
@@ -1641,11 +1660,6 @@ search {
 
   #search-result-wrapper {
     width: 100%;
-  }
-
-  #breadcrumb,
-  search {
-    display: none;
   }
 
   #topbar-wrapper {
